@@ -1,32 +1,41 @@
-"""
-Module Place
-Définit la classe Place qui représente une place de stationnement
-dans le parking DreamPark.
-"""
-import pydoc
-
-class Place :
-    """
-    Represent une place de Parking
-    Attributs :
-        numero (int):
-            Identifiant unique de la place.
-        niveau (int):
-            Niveau / étage du parking (0 = rez-de-chaussée, 1 = niveau 1, etc.).
-        longueur_max (float):
-            Longueur maximale acceptée pour un véhicule (en mètres).
-        hauteur_max (float):
-            Hauteur maximale acceptée pour un véhicule (en mètres).
-        voiture (Voiture | None):
-            Référence vers la voiture actuellement garée sur la place,
-            ou None si la place est libre.
-    """
-    def __init__(Self,numero,niveau,longueur_max,hauteur_max):
-        """
-        Initialise une nouvelle place de parking.
-         Args:
-            numero (int): identifiant unique de la place (doit être positif).
-            niveau (int): niveau / étage du parking.
-            longueur_max (float): longueur maximale acceptée (en mètres).
-            hauteur_max (float): hauteur maximale acceptée (en mètres).
-        """
+import Placement
+class Place:
+    def __init__(self, numero , niveau , longueur, hauteur):
+        self.numero = numero
+        self.niveau = niveau
+        self.longueur = longueur 
+        self.hauteur = hauteur
+        self.estLibre = True
+        self.placement = None
+#getteurs
+        
+    def getNumero(self): 
+        return self.numero
+    
+    def getNiveau(self):
+        return self.niveau
+    
+    def getLongueur(self):
+        return self.longueur 
+    
+    def getHauteur(self):
+        return self.hauteur
+    
+    def getEstlibre(self) :
+        return self.estLibre
+    
+    def getPlacement(self):
+        return self.placement
+    
+#methodes
+    def addPlacement(self, p):
+        """Ajoute un placement à cette place"""
+        if not self.estLibre:
+            print("Erreur : la place est déjà occupée")
+            return False
+        self.placement = p
+        self.estLibre = False
+        return True
+    
+    
+    

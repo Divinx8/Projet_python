@@ -1,19 +1,17 @@
-class Abonnement(): 
-    def __init__(self, libelle, prix, parkingGaranti):
-        """Constructeur de classe, prend un nom, un prix et si oui ou non une place de parking est garantie"""
-        self.libelle = libelle
+class Abonnement:
+    def __init__(self, libelle , prix, estPackgar):
+        self.libelle = libelle  # "STANDARD" ou "PREMIUM"
         self.prix = prix
-        self.estPackGar = parkingGaranti
-
+        self.estPackgar = estPackgar
+    
     def getLibelle(self):
-        """Renvoie le libelle de l'abonnement"""
         return self.libelle
     
-    def getPrix(self): 
-        """Renvoie le prix de l'abonnement"""
+    def getPrix(self):
         return self.prix
-
-    def isPackGar(self): 
-        """Renvoie si l'abonnement comporte ou non une place de parking dédiée"""
-        return self.estPackGar
-
+    
+    def getEstPackgar(self):
+        return self.estPackgar
+    
+    def resilier(self):
+        self.estPackgar = False
